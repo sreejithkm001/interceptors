@@ -10,6 +10,7 @@ export class GetfulldataComponent {
   constructor(private JSONPlaceholder: JSONPlaceholderService) {
     this.data = new Array<any>();
      }
+    //  to get full data
   getDataFromAPI() {
     this.JSONPlaceholder.getData().subscribe((data) => {
       console.log(data);

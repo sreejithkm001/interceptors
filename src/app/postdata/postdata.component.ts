@@ -16,6 +16,7 @@ export class PostdataComponent {
       body: ['', Validators.required],
     });
 }
+// to post data
 onSubmit() {
   if (this.postDataForm.valid) {
     const postData = this.postDataForm.value;
@@ -24,7 +25,6 @@ onSubmit() {
       (response) => {
         this.postResponse = response;
         console.log('POST request successful:', this.postResponse);
-        // Optionally, you can reset the form after a successful submission
         this.postDataForm.reset();
       },
       (error) => {

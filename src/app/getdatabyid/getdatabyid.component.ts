@@ -11,6 +11,7 @@ export class GetdatabyidComponent {
   userId!: number; 
   userData: any;
   constructor(private JSONPlaceholder: JSONPlaceholderService) { }
+  // to get data by id
   getDataById() {
     if (this.userId) {
       this.JSONPlaceholder.getPostById(this.userId).subscribe(
@@ -18,7 +19,6 @@ export class GetdatabyidComponent {
           this.userData = userData;
         },
         (error) => {
-          // Handle error, e.g., show a message to the user
           console.error('Error fetching data:', error);
         }
       );

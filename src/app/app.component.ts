@@ -25,12 +25,14 @@ export class AppComponent {
       body: ['', Validators.required],
     });
   }
+  // to fetch full data(HTTP GET) 
   getDataFromAPI() {
     this.JSONPlaceholder.getData().subscribe((data) => {
       console.log(data);
       this.data = data;
     });
   }
+  // to fetch data by id(HTTP GET)
   getDataById() {
     if (this.userId) {
       this.JSONPlaceholder.getPostById(this.userId).subscribe(
@@ -43,6 +45,7 @@ export class AppComponent {
       );
     }
   }
+  // HTTP POST
   onSubmit() {
     if (this.postDataForm.valid) {
       const postData = this.postDataForm.value;
