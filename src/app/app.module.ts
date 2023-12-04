@@ -9,13 +9,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { GetfulldataComponent } from './getfulldata/getfulldata.component';
 import { GetdatabyidComponent } from './getdatabyid/getdatabyid.component';
 import { PostdataComponent } from './postdata/postdata.component';
+import { DeleteComponent } from './delete/delete.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GetfulldataComponent,
     GetdatabyidComponent,
-    PostdataComponent
+    PostdataComponent,
+    DeleteComponent
   ],
   imports: [
     BrowserModule,

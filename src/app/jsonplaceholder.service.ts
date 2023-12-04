@@ -16,4 +16,15 @@ export class JSONPlaceholderService {
   postData(data: any): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}`, data);
   }
+  putData(id: number, data: any): Observable<any> {
+    return this.http.put<any>(`${this.baseUrl}/${id}`, data);
+  }
+
+  patchData(id: number, data: any): Observable<any> {
+    return this.http.patch<any>(`${this.baseUrl}/${id}`, data);
+  }
+
+  deleteData(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.baseUrl}/${id}`);
+  }
 }

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { GetdatabyidComponent } from './getdatabyid/getdatabyid.component';
 import { GetfulldataComponent } from './getfulldata/getfulldata.component';
 import { PostdataComponent } from './postdata/postdata.component';
+import { DeleteComponent } from './delete/delete.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     component: PostdataComponent,
     path: 'post',
+  },
+  {
+    component: DeleteComponent,
+    path: 'delete',
   },
 ];
 

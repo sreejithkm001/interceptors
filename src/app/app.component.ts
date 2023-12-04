@@ -8,6 +8,8 @@ import { JSONPlaceholderService } from './jsonplaceholder.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  selectedPost: any;
+  posts: any[] = [];
   postDataForm: FormGroup;
   postResponse: any;
   title = 'get-post-api';
@@ -61,5 +63,51 @@ export class AppComponent {
         }
       );
     }
+  }
+  getAllData() {
+    this.JSONPlaceholder.getData().subscribe((data) => {
+      this.posts = data;
+    });
+  }
+
+  getSinglePost(id: number) {
+    this.JSONPlaceholder.getPostById(id).subscribe((post) => {
+      console.log('Single Post:', post);
+    });
+  }
+
+  updatePost(id: number) {
+    const updatedData = {
+      title: 'Updated Title',
+      body: 'Updated Body',
+      // Add other properties as needed
+    };
+
+    this.JSONPlaceholder.putData(id, updatedData).subscribe((updatedPost) => {
+      console.log('Updated Post:', updatedPost);
+      // Refresh the list of posts after update
+      this.getAllData();
+    });
+  }
+
+  partialUpdatePost(id: number) {
+    const partialData = {
+      body: 'Partially Updated Body',
+      // Add other properties as needed
+    };
+
+    this.JSONPlaceholder.patchData(id, partialData).subscribe((updatedPost) => {
+      console.log('Partially Updated Post:', updatedPost);
+      // Refresh the list of posts after update
+      this.getAllData();
+    });
+  }
+
+  deletePost(id: number) {
+    this.JSONPlaceholder.deleteData(id).subscribe(() => {
+      console.log('Post deleted successfully');
+      // Refresh the list of posts after delete
+      this.getAllData();
+    });
   }
 }
