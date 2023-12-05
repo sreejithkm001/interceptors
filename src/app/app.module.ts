@@ -26,7 +26,7 @@ import { DeleteComponent } from './delete/delete.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [JSONPlaceholderService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
